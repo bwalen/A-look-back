@@ -14,8 +14,9 @@ app.$inject = ['$http'];
 
 function photo($http){
   vm = this;
-  var getPhotos = $http.get("http://localhost:1337/load/Disneyland/1980");
+  var getPhotos = $http.get("http://localhost:1337/load/Disneyland/1970");
   getPhotos.then(function(getPhotos){
+    console.log(getPhotos.data);
     vm.list = getPhotos.data;
   })
 }
