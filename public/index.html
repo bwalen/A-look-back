@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en_us">
+  <head>
+    <title>A Working Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body ng-app="photo">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div ng-controller="photoController as photo">
+            <div ng-repeat="item in photo.list">
+              <img src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg"<br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="default.js"></script>
+    <script src="photo.controller.js"></script>
+  </body>
+</html>

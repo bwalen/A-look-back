@@ -12,18 +12,19 @@ app.use(express.static("./public"));
 
 app.get("/load/:location/:year", function(req, res){
   request("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=08ebd1a2af52b3e1e52749c9021ffe04&max_taken_date="+ getUnixDate(req.params.year) + "+&text=Disneyland&format=json&nojsoncallback=1&per_page=30", function(error, response, body){
-    res.json(body);
+    var test = JSON.parse(body);
+    res.send(test.photos.photo);
   })
 })
 
 app.get("/date/:year", function(req, res){
   request("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=08ebd1a2af52b3e1e52749c9021ffe04&max_taken_date="+ getUnixDate(req.params.year) + "+&format=json&nojsoncallback=1&per_page=30", function(error, response, body){
-    res.json(body);
+    res.send(body);
   })
 })
 
 app.get("/where/:location", function(req, res){
-  
+
 })
 
 app.listen(port, function(){
