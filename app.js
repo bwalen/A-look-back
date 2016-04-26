@@ -12,8 +12,7 @@ app.use(express.static("./public"));
 
 app.get("/load/:location/:year", function(req, res){
   console.log(req.params.location);
-  request("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=08ebd1a2af52b3e1e52749c9021ffe04&max_taken_date="+ getUnixDate(req.params.year) + "&woe_id=" + req.params.location + "&extras=url_n,url_o,geo,tags&format=json&nojsoncallback=1&per_page=50", function(error, response, body){
-    console.log(JSON.parse(body));
+  request("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=08ebd1a2af52b3e1e52749c9021ffe04&max_taken_date="+ (req.params.year) + "-01&woe_id=" + req.params.location + "&safe_search=1&extras=date_taken,url_l,url_n,url_o,geo,tags&format=json&nojsoncallback=1&per_page=100", function(error, response, body){
     res.send(body);
   })
 })
@@ -35,5 +34,5 @@ app.listen(port, function(){
 });
 
 function getUnixDate(year){
-  return((year-1970)*31536000000);
+  return((year-1970)*31536000);
 }

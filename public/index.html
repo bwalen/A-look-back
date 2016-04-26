@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en_us">
   <head>
-    <title>A Working Title</title>
+    <title>A Look Back</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
@@ -12,10 +12,13 @@
           <div ng-controller="photoController as photo">
             <form>
             <input type="text" id="testing" name="text" ng-model="input">
-               <button id="button" type="button" ng-click = "photo.where(input)">submit</button>
+            <input type="text" name="date" ng-model="date">
+               <button id="button" type="button" ng-click = " photo.when(date);photo.where(input)">submit</button>
             </form>
             <div>
-              <img ng-repeat="item in photo.list" ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
+              <a ng-repeat="item in photo.list" ng-href="{{item.url_o}}">
+                <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
+              </a>
             </div>
           </div>
         </div>
