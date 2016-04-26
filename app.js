@@ -11,9 +11,10 @@ app.use(bodyParser.json());
 app.use(express.static("./public"));
 
 app.get("/load/:location/:year", function(req, res){
-  request("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=08ebd1a2af52b3e1e52749c9021ffe04&max_taken_date="+ getUnixDate(req.params.year) + "+&text=Disneyland&extras=url_n,url_o,geo,tags&format=json&nojsoncallback=1&per_page=50", function(error, response, body){
-    var test = JSON.parse(body);
-    res.send(test.photos.photo);
+  console.log(req.params.location);
+  request("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=08ebd1a2af52b3e1e52749c9021ffe04&max_taken_date="+ getUnixDate(req.params.year) + "&woe_id=" + req.params.location + "&extras=url_n,url_o,geo,tags&format=json&nojsoncallback=1&per_page=50", function(error, response, body){
+    console.log(JSON.parse(body));
+    res.send(body);
   })
 })
 
@@ -24,7 +25,9 @@ app.get("/date/:year", function(req, res){
 })
 
 app.get("/where/:location", function(req, res){
-
+  request("https://api.flickr.com/services/rest/?method=flickr.places.find&api_key=08ebd1a2af52b3e1e52749c9021ffe04&&query=" + req.params.location + "&format=json&nojsoncallback=1&per_page=30", function(error, response, body){
+    res.send(body);
+  })
 })
 
 app.listen(port, function(){
