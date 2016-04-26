@@ -32,7 +32,3 @@ app.get("/where/:location", function(req, res){
 app.listen(port, function(){
   console.log("Listening on port " + port);
 });
-
-function getUnixDate(year){
-  return((year-1970)*31536000);
-}
