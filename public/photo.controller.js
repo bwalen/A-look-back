@@ -16,7 +16,6 @@ function photo($http){
   vm = this;
   var search = {where: 2427665, when: 1970};
   var locationsArray = [];
-  //
   getPhotoArray(search, 1);
 
   vm.where = function(whereInput){
@@ -36,11 +35,9 @@ function photo($http){
     var getPhotos = $http.get("http://localhost:1337/load/"+ whenWhere.where + "/" + whenWhere.when + "/" + yearRange);
     getPhotos.then(function(getPhotos){
       if(getPhotos.data.photos.total < 100 && yearRange <= 5){
-        console.log(getPhotos.data.photos.total);
         getPhotoArray(whenWhere, yearRange+1);
       }
       else{
-      console.log(getPhotos.data);
       vm.list = getPhotos.data.photos.photo;
       }
     })
