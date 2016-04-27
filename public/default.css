@@ -5,6 +5,9 @@
   margin-top: 10px;
 }
 #focus-picture{
+  background-color: rgba(0,0,0,0.5);
+  height:100%;
+  width:100%;
   position: fixed;
   text-align: center;
   z-index: 10;

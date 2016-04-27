@@ -31,9 +31,30 @@ function photo($http){
     search.when = whenInput;
   }
 
-  vm.show = function(picture){
-    vm.currentPicture = picture;
+  vm.show = function(index){
+    picture=vm.list[index];
     console.log(picture);
+    if(picture.url_b){
+      vm.currentPicture = picture.url_b;
+    }
+    else if(picture.url_h){
+      vm.currentPicture = picture.url_h;
+    }
+    else if(picture.url_k){
+      vm.currentPicture = picture.url_k;
+    }
+    else if(picture.url_o){
+      vm.currentPicture = picture.url_o;
+    }
+    else if(picture.url_c){
+      vm.currentPicture = picture.url_c;
+    }
+    else if(picture.url_z){
+      vm.currentPicture = picture.url_z;
+    }
+    else{
+      vm.currentPicture = picture.url_n;
+    }
   }
 
 
