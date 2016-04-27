@@ -15,7 +15,7 @@
             <input type="text" name="date" ng-model="date">
                <button id="button" type="button" ng-click = " photo.when(date);photo.where(input)">submit</button>
             </form>
-            <div>
+            <div id="container">
               <a ng-repeat="item in photo.list" ng-href="{{item.url_o}}">
                 <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
               </a>
