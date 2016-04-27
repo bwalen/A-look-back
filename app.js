@@ -11,7 +11,9 @@ app.use(bodyParser.json());
 app.use(express.static("./public"));
 
 app.get("/load/:location/:year/:range", function(req, res){
-  request("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=08ebd1a2af52b3e1e52749c9021ffe04&min_taken_date=" + (req.params.year-req.params.range) + "&max_taken_date=" + (req.params.year+req.params.range) + "-01&woe_id=" + req.params.location + "&safe_search=1&extras=date_taken,url_l,url_n,url_o,geo,tags&format=json&nojsoncallback=1&per_page=100", function(error, response, body){
+  beginningYear = req.params.year - req.params.range;
+  endingYear = Number(req.params.year) + Number(req.params.range);
+  request("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=08ebd1a2af52b3e1e52749c9021ffe04&min_taken_date=" + beginningYear + "&max_taken_date=" + endingYear + "-01&woe_id=" + req.params.location + "&safe_search=1&extras=date_taken,url_l,url_n,url_o,geo,tags&format=json&nojsoncallback=1&per_page=100", function(error, response, body){
     res.send(body);
   })
 })
