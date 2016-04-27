@@ -31,6 +31,12 @@ function photo($http){
     search.when = whenInput;
   }
 
+  vm.show = function(picture){
+    vm.currentPicture = picture;
+    console.log(picture);
+  }
+
+
   function getPhotoArray(whenWhere, yearRange){
     var getPhotos = $http.get("http://localhost:1337/load/"+ whenWhere.where + "/" + whenWhere.when + "/" + yearRange);
     getPhotos.then(function(getPhotos){

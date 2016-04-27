@@ -1,9 +1,19 @@
 .pictures{
-  max-height: 200px;
-  max-width: 200px;
+  height: 200px;
+  width: 200px;
   overflow: hidden;
+  margin-top: 10px;
+}
+#focus-picture{
+  position: fixed;
+  text-align: center;
+  z-index: 10;
 }
 
 form{
-  margin:10px;
+  margin-top: 10px;
+}
+
+body{
+  background-color: grey;
 }

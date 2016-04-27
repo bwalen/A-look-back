@@ -14,12 +14,15 @@
             <form>
             <input type="text" id="testing" name="text" ng-model="input">
             <input type="text" name="date" ng-model="date">
-               <button id="button" type="button" ng-click = " photo.when(date);photo.where(input)">submit</button>
+               <button id="button" type="button" ng-click = "photo.when(date);photo.where(input)">submit</button>
             </form>
             <div ng-repeat="item in photo.list" class="pictures col-sm-3">
-              <a ng-href="{{item.url_o}}">
+              <a ng-click="photo.show(item)">
                 <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
               </a>
+            </div>
+            <div id="focus-picture" ng-hide="!photo.currentPicture">
+              <img class="img-responsive" ng-src="{{photo.currentPicture.url_o}}">
             </div>
           </div>
         </div>
