@@ -16,6 +16,7 @@ function photo($http){
   vm = this;
   var search = {where: 2427665, when: 1970};
   var locationsArray = [];
+  //
   getPhotoArray(search, 1);
 
   vm.where = function(whereInput){
@@ -23,7 +24,6 @@ function photo($http){
     getLocation.then(function(getLocation){
       locationsArray = getLocation.data;
       search.where = getLocation.data.places.place[0].woeid;
-      console.log(getLocation.data.places);
       getPhotoArray(search, 1);
     })
   }
@@ -33,7 +33,6 @@ function photo($http){
   }
 
   function getPhotoArray(whenWhere, yearRange){
-    console.log(whenWhere + " " + yearRange);
     var getPhotos = $http.get("http://localhost:1337/load/"+ whenWhere.where + "/" + whenWhere.when + "/" + yearRange);
     getPhotos.then(function(getPhotos){
       if(getPhotos.data.photos.total < 100 && yearRange <= 5){
