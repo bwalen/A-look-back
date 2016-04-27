@@ -1,0 +1,9 @@
+.pictures{
+  max-height: 200px;
+  max-width: 200px;
+  overflow: hidden;
+}
+
+form{
+  margin:10px;
+}

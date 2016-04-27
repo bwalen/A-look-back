@@ -4,6 +4,7 @@
     <title>A Look Back</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="default.css">
   </head>
   <body ng-app="photo">
     <div class="container-fluid">
@@ -15,8 +16,8 @@
             <input type="text" name="date" ng-model="date">
                <button id="button" type="button" ng-click = " photo.when(date);photo.where(input)">submit</button>
             </form>
-            <div id="container">
-              <a ng-repeat="item in photo.list" ng-href="{{item.url_o}}">
+            <div ng-repeat="item in photo.list" class="pictures col-sm-3">
+              <a ng-href="{{item.url_o}}">
                 <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
               </a>
             </div>
