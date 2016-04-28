@@ -16,7 +16,7 @@
             <input type="text" name="date" ng-model="date">
                <button id="button" type="button" ng-click = "photo.when(date);photo.where(input)">submit</button>
             </form>
-            <div ng-repeat="item in photo.list" class="pictures col-sm-3" data-id={{$index}}>
+            <div ng-repeat="item in photo.list" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{border: hover}" class="pictures col-sm-3">
               <a ng-click="photo.show($index)">
                 <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
               </a>

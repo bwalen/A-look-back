@@ -2,7 +2,9 @@
   height: 200px;
   width: 200px;
   overflow: hidden;
-  margin-top: 10px;
+  margin: 3px;
+  padding: 0px;
+
 }
 
 #focus-area{
@@ -27,4 +29,13 @@ form{
 
 body{
   background-color: grey;
+}
+
+.border{
+  border-style: solid;
+  border-color: orange;
+  border-width: 3px;
+  height: 206px;
+  width: 206px;
+  margin: 0px;
 }

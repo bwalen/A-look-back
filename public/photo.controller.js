@@ -14,6 +14,7 @@ app.$inject = ['$http'];
 
 function photo($http){
   vm = this;
+  var hover;
   var search = {where: 2427665, when: 1970};
   var locationsArray = [];
   getPhotoArray(search, 1);
