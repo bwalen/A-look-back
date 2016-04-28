@@ -21,8 +21,8 @@
                 <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
               </a>
             </div>
-           <div id="focus-picture" ng-click="photo.currentPicture=!photo.currentPicture" ng-hide="!photo.currentPicture">
-              <img class="img-responsive" ng-src="{{photo.currentPicture}}">
+           <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-click="photo.currentPicture=!photo.currentPicture" ng-hide="!photo.currentPicture">
+              <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}">
             </div>
           </div>
         </div>
