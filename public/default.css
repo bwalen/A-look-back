@@ -4,7 +4,6 @@
   overflow: hidden;
   margin: 3px;
   padding: 0px;
-
 }
 
 #focus-area{
@@ -16,11 +15,15 @@
   z-index: 10;
 }
 
+#focus-container{
+  max-height: 80%;
+}
+
 #focus-picture{
+  max-height: 80%;
   display:block;
   margin: auto;
-  margin-top: 20px;
-  max-height: 70%;
+  margin-top: 10px;
 }
 
 form{

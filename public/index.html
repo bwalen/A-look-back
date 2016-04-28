@@ -17,12 +17,16 @@
                <button id="button" type="button" ng-click = "photo.when(date);photo.where(input)">submit</button>
             </form>
             <div ng-repeat="item in photo.list" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{border: hover}" class="pictures col-sm-3">
-              <a ng-click="photo.show($index)">
+              <a ng-click="photo.show($index); photo.whereInArray=$index;">
                 <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
               </a>
             </div>
-           <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-click="photo.currentPicture=!photo.currentPicture" ng-hide="!photo.currentPicture">
+           <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture">
+             <div id="focus-container">
               <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}">
+            </div>
+              <button class="pull-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);">Previous</button>
+              <button class="pull-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">Next</button>
             </div>
           </div>
         </div>

@@ -33,31 +33,15 @@ function photo($http){
   }
 
   vm.show = function(index){
-    picture=vm.list[index];
-    console.log(picture);
-    if(picture.url_b){
-      vm.currentPicture = picture.url_b;
+    vm.whereInArray = index;
+    if(vm.whereInArray < 0){
+      vm.whereInArray = vm.list.length-1;
     }
-    else if(picture.url_h){
-      vm.currentPicture = picture.url_h;
+    if(vm.whereInArray > vm.list.length-1){
+      vm.whereInArray = 0;
     }
-    else if(picture.url_k){
-      vm.currentPicture = picture.url_k;
-    }
-    else if(picture.url_o){
-      vm.currentPicture = picture.url_o;
-    }
-    else if(picture.url_c){
-      vm.currentPicture = picture.url_c;
-    }
-    else if(picture.url_z){
-      vm.currentPicture = picture.url_z;
-    }
-    else{
-      vm.currentPicture = picture.url_n;
-    }
+    vm.currentPicture = getPictureUrl(vm.list[vm.whereInArray]);
   }
-
 
   function getPhotoArray(whenWhere, yearRange){
     var getPhotos = $http.get("http://localhost:1337/load/"+ whenWhere.where + "/" + whenWhere.when + "/" + yearRange);
@@ -69,5 +53,35 @@ function photo($http){
       vm.list = getPhotos.data.photos.photo;
       }
     })
+  }
+}
+
+function getPictureUrl(picture){
+  if(picture.url_l){
+    return picture.url_l;
+  }
+  else if(picture.url_b){
+    return picture.url_b;
+  }
+  else if(picture.url_h){
+    return picture.url_h;
+  }
+  else if(picture.url_k){
+    return picture.url_k;
+  }
+  else if(picture.url_o){
+    return picture.url_o;
+  }
+  else if(picture.url_c){
+    return picture.url_c;
+  }
+  else if(picture.url_z){
+    return picture.url_z;
+  }
+  else if(picture.url_m){
+    return picture.url_m;
+  }
+  else{
+    return picture.url_n;
   }
 }
