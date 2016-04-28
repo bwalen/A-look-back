@@ -1,0 +1,30 @@
+.pictures{
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+#focus-area{
+  background-color: rgba(0,0,0,0.8);
+  height:100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+}
+
+#focus-picture{
+  display:block;
+  margin: auto;
+  margin-top: 20px;
+  max-height: 70%;
+}
+
+form{
+  margin-top: 10px;
+}
+
+body{
+  background-color: grey;
+}
