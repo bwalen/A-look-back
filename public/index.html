@@ -24,9 +24,9 @@
            <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture">
              <div id="focus-container">
                  <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}">
-                 <span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove"></span>
-                 <span class="left navigation glyphicon glyphicon-triangle-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span>
-                 <span class="right navigation glyphicon glyphicon-triangle-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span>
+                 <a href=""><span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove"></span></a>
+                 <a href=""><span class="left navigation glyphicon glyphicon-triangle-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span></a>
+                 <a href=""><span class="right navigation glyphicon glyphicon-triangle-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span></a>
               </div>
               <hr>
               <div id="lower-focus">

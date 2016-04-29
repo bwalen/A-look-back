@@ -40,11 +40,11 @@ function photo($http){
     if(vm.whereInArray > vm.list.length-1){
       vm.whereInArray = 0;
     }
-    vm.currentPicture = getPictureUrl(vm.list[vm.whereInArray]);
-    vm.nextPicture = getPictureUrl(vm.list[vm.whereInArray+1]);
-    vm.previousPicture = getPictureUrl(vm.list[vm.whereInArray-1]);
-    vm.nextNextPicture = getPictureUrl(vm.list[vm.whereInArray+2]);
-    vm.prePrePicture = getPictureUrl(vm.list[vm.whereInArray-2]);
+    vm.currentPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray)]);
+    vm.nextPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray+1)]);
+    vm.previousPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray-1)]);
+    vm.nextNextPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray+2)]);
+    vm.prePrePicture = getPictureUrl(vm.list[adjPos(vm.whereInArray-2)]);
   }
 
   function getPhotoArray(whenWhere, yearRange){
@@ -58,6 +58,16 @@ function photo($http){
       }
     })
   }
+}
+
+function adjPos(oldIndex){
+  if(oldIndex < 0){
+    oldIndex = vm.list.length-1;
+  }
+  if(oldIndex > vm.list.length-1){
+    oldIndex = 0;
+  }
+  return oldIndex;
 }
 
 function getPictureUrl(picture){
