@@ -41,6 +41,10 @@ function photo($http){
       vm.whereInArray = 0;
     }
     vm.currentPicture = getPictureUrl(vm.list[vm.whereInArray]);
+    vm.nextPicture = getPictureUrl(vm.list[vm.whereInArray+1]);
+    vm.previousPicture = getPictureUrl(vm.list[vm.whereInArray-1]);
+    vm.nextNextPicture = getPictureUrl(vm.list[vm.whereInArray+2]);
+    vm.prePrePicture = getPictureUrl(vm.list[vm.whereInArray-2]);
   }
 
   function getPhotoArray(whenWhere, yearRange){

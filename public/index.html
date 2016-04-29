@@ -18,16 +18,35 @@
             </form>
             <div ng-repeat="item in photo.list" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{border: hover}" class="pictures col-sm-3">
               <a ng-click="photo.show($index); photo.whereInArray=$index;">
-                <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
+                <img class="lower-picture" ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
               </a>
             </div>
            <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture">
              <div id="focus-container">
-              <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}">
-              <span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            </div>
-              <button class="pull-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);">Previous</button>
-              <button class="pull-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">Next</button>
+                 <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}">
+                 <span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove"></span>
+                 <span class="left navigation glyphicon glyphicon-triangle-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span>
+                 <span class="right navigation glyphicon glyphicon-triangle-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span>
+              </div>
+              <hr>
+              <div id="lower-focus">
+                <div class="hidden col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture">
+                  <img class="lower-picture img-responsive" ng-srcset="{{photo.prePrePicture}}">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture">
+                  <img class="lower-picture img-responsive" ng-srcset="{{photo.previousPicture}}">
+                </div>
+                <div class="col-sm-4 lower-picture">
+                  <img class="lower-picture img-responsive" ng-srcset="{{photo.currentPicture}}">
+                </div>
+                <div class="col-sm-4 lower-picture">
+                  <img class="lower-picture img-responsive" ng-srcset="{{photo.nextPicture}}">
+                </div>
+                <div class="hidden col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture">
+                  <img class="lower-picture img-responsive" ng-srcset="{{photo.nextNextPicture}}">
+                </div>
+              </div>
+              <hr>
             </div>
           </div>
         </div>
