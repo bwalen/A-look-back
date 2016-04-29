@@ -24,6 +24,7 @@
            <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture">
              <div id="focus-container">
               <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}">
+              <span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </div>
               <button class="pull-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);">Previous</button>
               <button class="pull-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">Next</button>
