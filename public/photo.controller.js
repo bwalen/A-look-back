@@ -2,14 +2,6 @@ var app = angular.module("photo");
 
 app.controller('photoController', photo);
 
-app.directive("photo", photoDirective);
-
-function photoDirective(){
-  return {
-    templateUrl: "home/photo.controller.html"
-  }
-}
-
 app.$inject = ['$http'];
 
 function photo($http){
@@ -23,9 +15,7 @@ function photo($http){
   vm.where = function(whereInput){
     var getLocation = $http.get("http://localhost:1337/where/" + whereInput);
     getLocation.then(function(getLocation){
-      console.log(getLocation.data);
       vm.locationsArray = getLocation.data;
-      console.log(vm.locationsArray);
       search.where = getLocation.data.places.place[0].woeid;
       getPhotoArray(search, 1);
     })

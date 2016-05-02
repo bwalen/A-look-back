@@ -13,7 +13,7 @@
           <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="#">A Look Back</a>
+                <a class="navbar-brand" href="http://localhost:1337">A Look Back</a>
               </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <form class="navbar-form navbar-left" role="search">
@@ -28,9 +28,9 @@
         </nav>
         <div class="col-md-12">
           <div ng-show="photo.locationsArray.places.place[0]._content">
-            <p>Showing results for <a href="" ng-click="photo.otherResults==true;">{{photo.locationsArray.places.place[0]._content}}</a></p>
-              <ul ng-show="photo.otherResults==true;">Other Results:
-                <li ng-repeat="items in photo.locationsArray.places.place">{{photo.locationsArray.places.place[$index]._content}}</li>
+            <p>Showing results for <a href="" ng-click="photo.otherResults=!photo.otherResults;">{{photo.locationsArray.places.place[0]._content}}</a></p>
+              <ul ng-show="photo.otherResults">All Results:
+                <li ng-repeat="items in photo.locationsArray.places.place"><a href="" ng-click="photo.where(photo.locationsArray.places.place[$index]._content);photo.otherResults=!photo.otherResults;">{{photo.locationsArray.places.place[$index]._content}}</a></li>
               </ul>
           </div>
             <div ng-repeat="item in photo.list" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{border: hover}" class="pictures col-sm-3">
