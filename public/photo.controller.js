@@ -2,14 +2,6 @@ var app = angular.module("photo");
 
 app.controller('photoController', photo);
 
-app.directive("photo", photoDirective);
-
-function photoDirective(){
-  return {
-    templateUrl: "home/photo.controller.html"
-  }
-}
-
 app.$inject = ['$http'];
 
 function photo($http){
@@ -17,12 +9,13 @@ function photo($http){
   var hover;
   var search = {where: 2427665, when: 1970};
   var locationsArray = [];
-  getPhotoArray(search, 1);
+  vm.otherResults = false;
+  //getPhotoArray(search, 1);
 
   vm.where = function(whereInput){
     var getLocation = $http.get("http://localhost:1337/where/" + whereInput);
     getLocation.then(function(getLocation){
-      locationsArray = getLocation.data;
+      vm.locationsArray = getLocation.data;
       search.where = getLocation.data.places.place[0].woeid;
       getPhotoArray(search, 1);
     })
@@ -40,18 +33,18 @@ function photo($http){
     if(vm.whereInArray > vm.list.length-1){
       vm.whereInArray = 0;
     }
-    vm.currentPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray)]);
+    vm.nextNextPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray+2)]);
     vm.nextPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray+1)]);
     vm.previousPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray-1)]);
-    vm.nextNextPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray+2)]);
     vm.prePrePicture = getPictureUrl(vm.list[adjPos(vm.whereInArray-2)]);
+    vm.currentPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray)]);
   }
 
   function getPhotoArray(whenWhere, yearRange){
     var getPhotos = $http.get("http://localhost:1337/load/"+ whenWhere.where + "/" + whenWhere.when + "/" + yearRange);
     getPhotos.then(function(getPhotos){
-      if(getPhotos.data.photos.total < 100 && yearRange <= 5){
-        getPhotoArray(whenWhere, yearRange+1);
+      if(getPhotos.data.photos.total < 50 && yearRange <= 10){
+        getPhotoArray(whenWhere, yearRange+2);
       }
       else{
       vm.list = getPhotos.data.photos.photo;
