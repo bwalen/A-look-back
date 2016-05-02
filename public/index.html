@@ -18,8 +18,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="text" ng-model="input">
-                  <input type="text" class="form-control" name="date" ng-model="date">
+                  <input type="text" class="form-control" name="text" placeholder="Location" ng-model="input">
+                  <input type="year" class="form-control" name="date" placeholder="Year" ng-model="date">
                 </div>
                 <button id="button" class="btn btn-inverse" type="button" ng-click = "photo.when(date);photo.where(input)">submit</button>
               </form>
@@ -35,7 +35,7 @@
           </div>
             <div ng-repeat="item in photo.list" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{border: hover}" class="pictures col-sm-3">
               <a ng-click="photo.show($index); photo.whereInArray=$index;">
-                <img class="lower-picture" ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
+                <img class="lower-picture loading" ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
               </a>
             </div>
            <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture">
@@ -45,7 +45,6 @@
                  <a href=""><span class="left navigation glyphicon glyphicon-chevron-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span></a>
                  <a href=""><span class="right navigation glyphicon glyphicon-chevron-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span></a>
               </div>
-              <hr>
               <div id="lower-focus">
                 <div class="hidden col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture">
                   <img class="lower-picture img-responsive" ng-src="{{photo.prePrePicture}}">
@@ -63,7 +62,6 @@
                   <img class="lower-picture img-responsive" ng-src="{{photo.nextNextPicture}}">
                 </div>
               </div>
-              <hr>
             </div>
           </div>
         </div>
