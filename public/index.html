@@ -31,19 +31,19 @@
               <hr>
               <div id="lower-focus">
                 <div class="hidden col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture">
-                  <img class="lower-picture img-responsive" ng-srcset="{{photo.prePrePicture}}">
+                  <img class="lower-picture img-responsive" ng-src="{{photo.prePrePicture}}">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);">
+                  <img class="lower-picture img-responsive" ng-src="{{photo.previousPicture}}">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture">
-                  <img class="lower-picture img-responsive" ng-srcset="{{photo.previousPicture}}">
+                  <img class="lower-picture img-responsive" ng-src="{{photo.currentPicture}}">
                 </div>
-                <div class="col-sm-4 lower-picture">
-                  <img class="lower-picture img-responsive" ng-srcset="{{photo.currentPicture}}">
-                </div>
-                <div class="col-sm-4 lower-picture">
-                  <img class="lower-picture img-responsive" ng-srcset="{{photo.nextPicture}}">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
+                  <img class="lower-picture img-responsive" ng-src="{{photo.nextPicture}}">
                 </div>
                 <div class="hidden col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture">
-                  <img class="lower-picture img-responsive" ng-srcset="{{photo.nextNextPicture}}">
+                  <img class="lower-picture img-responsive" ng-src="{{photo.nextNextPicture}}">
                 </div>
               </div>
               <hr>
