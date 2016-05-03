@@ -16,7 +16,7 @@ function photo($http){
     getLocation.then(function(getLocation){
       vm.locationsArray = getLocation.data;
       search.where = getLocation.data.places.place[0].woeid;
-      getPhotoArray(search, 1);
+      getPhotoArray(search, 0);
     })
   }
 
@@ -42,11 +42,13 @@ function photo($http){
   function getPhotoArray(whenWhere, yearRange){
     var getPhotos = $http.get("/load/"+ whenWhere.where + "/" + whenWhere.when + "/" + yearRange);
     getPhotos.then(function(getPhotos){
-      if(getPhotos.data.photos.total < 50 && yearRange <= 10){
+      if(getPhotos.data.photos.total < 50 && yearRange < 10){
         getPhotoArray(whenWhere, yearRange+2);
       }
       else{
-      vm.list = getPhotos.data.photos.photo;
+        vm.list = getPhotos.data.photos.photo;
+        vm.yearFrom = whenWhere.when-yearRange;
+        vm.yearTo = Number(whenWhere.when) + Number(yearRange);
       }
     })
   }

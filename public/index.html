@@ -15,7 +15,7 @@
               <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">A Look Back</a>
               </div>
-
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" name="text" placeholder="Location" ng-model="input">
@@ -23,7 +23,7 @@
                 </div>
                 <button id="button" class="btn btn-inverse" type="button" ng-click = "photo.when(date);photo.where(input)">submit</button>
               </form>
-          
+            </div>
           </div>
         </nav>
         <div id="landing" ng-hide="photo.list">
@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-12">
           <div ng-show="photo.locationsArray.places.place[0]._content">
-            <p>Showing results for <a href="" ng-click="photo.otherResults=!photo.otherResults;">{{photo.locationsArray.places.place[0]._content}}</a></p>
+            <p>Showing results for <a href="" ng-click="photo.otherResults=!photo.otherResults;">{{photo.locationsArray.places.place[0]._content}}</a><span> from {{photo.yearFrom}} - {{photo.yearTo}}</span></p>
               <ul ng-show="photo.otherResults">All Results:
                 <li ng-repeat="items in photo.locationsArray.places.place"><a href="" ng-click="photo.where(photo.locationsArray.places.place[$index]._content);photo.otherResults=!photo.otherResults;">{{photo.locationsArray.places.place[$index]._content}}</a></li>
               </ul>
