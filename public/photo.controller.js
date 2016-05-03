@@ -12,7 +12,7 @@ function photo($http){
   vm.otherResults = false;
 
   vm.where = function(whereInput){
-    var getLocation = $http.get("http://localhost:1337/where/" + whereInput);
+    var getLocation = $http.get("/where/" + whereInput);
     getLocation.then(function(getLocation){
       vm.locationsArray = getLocation.data;
       search.where = getLocation.data.places.place[0].woeid;
@@ -40,7 +40,7 @@ function photo($http){
   }
 
   function getPhotoArray(whenWhere, yearRange){
-    var getPhotos = $http.get("http://localhost:1337/load/"+ whenWhere.where + "/" + whenWhere.when + "/" + yearRange);
+    var getPhotos = $http.get("/load/"+ whenWhere.where + "/" + whenWhere.when + "/" + yearRange);
     getPhotos.then(function(getPhotos){
       if(getPhotos.data.photos.total < 50 && yearRange <= 10){
         getPhotoArray(whenWhere, yearRange+2);
