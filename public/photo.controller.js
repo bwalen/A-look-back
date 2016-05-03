@@ -47,8 +47,6 @@ function photo($http){
       }
       else{
         vm.list = getPhotos.data.photos.photo;
-        vm.yearFrom = whenWhere.when-yearRange;
-        vm.yearTo = Number(whenWhere.when) + Number(yearRange);
       }
     })
   }
