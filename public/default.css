@@ -97,3 +97,14 @@ body{
 .loading{
   background: transparent url("images/loading.gif") center no-repeat;
 }
+
+#landing{
+  background-image: url("images/splashbg.jpg");
+  margin-top: -20px;
+  height:800px;
+}
+
+.landing-text{
+  color: white;
+  text-align: center;
+}

@@ -1,10 +1,7 @@
 var express = require("express");
 var bodyParser= require("body-parser");
-var mongo = require('mongodb');
 var app = express();
 var request = require("request");
-var myClient = mongo.MongoClient;
-var url = "mongodb://localhost:27017/test";
 var port = process.env.PORT || 1337;
 
 app.use(bodyParser.json());
