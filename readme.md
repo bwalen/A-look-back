@@ -8,6 +8,7 @@ A look back is designed to be an app that allows people to go choose a place and
 ##Technologies Used
 Javascript  
 AngularJs  
+MongoDB  
 Html  
 CSS  
 Bootstrap  
