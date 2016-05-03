@@ -10,7 +10,6 @@ function photo($http){
   var search = {where: 2427665, when: 1970};
   var locationsArray = [];
   vm.otherResults = false;
-  //getPhotoArray(search, 1);
 
   vm.where = function(whereInput){
     var getLocation = $http.get("http://localhost:1337/where/" + whereInput);
