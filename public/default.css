@@ -108,3 +108,13 @@ body{
   color: white;
   text-align: center;
 }
+
+h1{
+  font-size: 75px;
+  padding-top: 125px;
+}
+
+#explore-button{
+  display:block;
+  margin:auto;
+}

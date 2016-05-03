@@ -39,14 +39,24 @@ function photo($http){
     vm.currentPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray)]);
   }
 
+  vm.explore = function(){
+      var getExplore = $http.get("/explore");
+      getExplore.then(function(getExplore){
+        var exploreArray = getExplore.data;
+        var randomIndex = Math.floor(Math.random()*(exploreArray.length-1-0+1)+0);
+        vm.when(exploreArray[randomIndex].when);
+        vm.where(exploreArray[randomIndex].where);
+      })
+  }
+
   function getPhotoArray(whenWhere, yearRange){
     var getPhotos = $http.get("/load/"+ whenWhere.where + "/" + whenWhere.when + "/" + yearRange);
     getPhotos.then(function(getPhotos){
-      if(getPhotos.data.photos.total < 50 && yearRange <= 10){
+      if(getPhotos.data.photos.total < 50 && yearRange < 10){
         getPhotoArray(whenWhere, yearRange+2);
       }
       else{
-      vm.list = getPhotos.data.photos.photo;
+        vm.list = getPhotos.data.photos.photo;
       }
     })
   }
