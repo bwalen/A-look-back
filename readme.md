@@ -14,7 +14,6 @@ Bootstrap
 NodeJs  
 NPM  
 express module  
-cookie parser module  
 request module  
 
 
@@ -23,3 +22,6 @@ request module
 
 
 ##Screenshots (coming soon!)  
+![Screenshot](https://cloud.githubusercontent.com/assets/17256090/14996880/fdb88946-1130-11e6-8aa7-47d4713fa9cf.png)  
+![Screenshot](https://cloud.githubusercontent.com/assets/17256090/14996975/5ed3f9cc-1131-11e6-8eef-27ecbb4eac2d.png)  
+![Screenshot](https://cloud.githubusercontent.com/assets/17256090/14997010/8a7a4248-1131-11e6-9ca3-7c3d32a18af2.png)  

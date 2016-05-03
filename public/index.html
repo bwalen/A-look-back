@@ -15,7 +15,7 @@
               <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">A Look Back</a>
               </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" name="text" placeholder="Location" ng-model="input">
@@ -23,11 +23,13 @@
                 </div>
                 <button id="button" class="btn btn-inverse" type="button" ng-click = "photo.when(date);photo.where(input)">submit</button>
               </form>
-            </div>
+          
           </div>
         </nav>
         <div id="landing" ng-hide="photo.list">
           <h1 class="landing-text">A Look Back</h1>
+          <h3 class="landing-text">Photography provides insight into the look and feel of a place in history.</h3>
+          <h3 class="landing-text">Search now!</h3>
         </div>
         <div class="col-md-12">
           <div ng-show="photo.locationsArray.places.place[0]._content">
@@ -48,7 +50,7 @@
                  <a href=""><span class="left navigation glyphicon glyphicon-chevron-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span></a>
                  <a href=""><span class="right navigation glyphicon glyphicon-chevron-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span></a>
               </div>
-              <div id="lower-focus">
+              <div class="hidden-xs" id="lower-focus">
                 <div class="hidden col-lg-4 col-md-4 col-sm-4 col-xs-4 lower-picture">
                   <img class="lower-picture img-responsive" ng-src="{{photo.prePrePicture}}">
                 </div>
