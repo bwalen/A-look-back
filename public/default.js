@@ -1,1 +1,1 @@
-var app = angular.module("photo",[]);
+var app = angular.module("photo",["ngTouch"]);
