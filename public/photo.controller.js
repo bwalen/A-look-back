@@ -2,7 +2,7 @@ var app = angular.module("photo");
 
 app.controller('photoController', photo);
 
-app.$inject = ['$http'];
+app.$inject = ['$http','$swipe'];
 
 function photo($http){
   vm = this;

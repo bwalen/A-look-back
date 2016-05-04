@@ -50,7 +50,7 @@
             </div>
            <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture">
              <div id="focus-container">
-                 <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}">
+                 <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}" ng-swipe-right="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);" ng-swipe-left="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
                  <a href=""><span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove"></span></a>
                  <a href=""><span class="left navigation glyphicon glyphicon-chevron-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span></a>
                  <a href=""><span class="right navigation glyphicon glyphicon-chevron-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span></a>
@@ -78,6 +78,7 @@
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-touch.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="default.js"></script>
