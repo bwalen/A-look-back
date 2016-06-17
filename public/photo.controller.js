@@ -32,11 +32,14 @@ function photo($http){
     if(vm.whereInArray > vm.list.length-1){
       vm.whereInArray = 0;
     }
-    vm.nextNextPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray+2)]);
     vm.nextPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray+1)]);
     vm.previousPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray-1)]);
-    vm.prePrePicture = getPictureUrl(vm.list[adjPos(vm.whereInArray-2)]);
     vm.currentPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray)]);
+    for(var i = 0; i <= 14; i++){
+      prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray - 7 + i)]));
+    }
+    //prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray-2)]));
+    //prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray+2)]));
   }
 
   vm.explore = function(){
@@ -62,12 +65,17 @@ function photo($http){
   }
 }
 
+function prefetchImage(source){
+  var myImage = new Image();
+  myImage.src = source;
+}
+
 function adjPos(oldIndex){
   if(oldIndex < 0){
-    oldIndex = vm.list.length-1;
+    oldIndex = vm.list.length-1 + oldIndex;
   }
   if(oldIndex > vm.list.length-1){
-    oldIndex = 0;
+    oldIndex = oldIndex - vm.list.length-1;
   }
   return oldIndex;
 }
