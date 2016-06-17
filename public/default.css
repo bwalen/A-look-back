@@ -100,8 +100,11 @@ body{
 
 #landing{
   background-image: url("images/splashbg.jpg");
-  margin-top: -20px;
-  height:800px;
+  position: fixed;
+  top:20px;
+  width:100%;
+  height:100%;
+  z-index: -1;
 }
 
 .landing-text{
