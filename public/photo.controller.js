@@ -38,8 +38,6 @@ function photo($http){
     for(var i = 0; i <= 14; i++){
       prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray - 7 + i)]));
     }
-    //prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray-2)]));
-    //prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray+2)]));
   }
 
   vm.explore = function(){
