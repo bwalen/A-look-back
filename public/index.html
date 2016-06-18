@@ -15,46 +15,46 @@
               <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">A Look Back</a>
               </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="text" placeholder="Location" ng-model="input">
-                  <input type="year" class="form-control" name="date" placeholder="Year" ng-model="date">
-                </div>
-                <button id="button" class="btn btn-inverse" type="button" ng-click = "photo.when(date);photo.where(input)">Submit</button>
-              </form>
-              <form class="navbar-form navbar-right">
-              <button id="explore-button" class="pull-right btn btn-inverse" ng-click = "photo.explore();">Explore</button>
-            </form>
-            </div>
-          </div>
-        </nav>
-        <div id="landing" ng-hide="photo.locationsArray.places.place[0]._content">
-          <h1 class="landing-text">A Look Back</h1>
-          <h3 class="landing-text">Photography provides insight into the look and feel of a place in history.</h3>
-          <h3 class="landing-text">Search now</h3>
-          <h3 class="landing-text">or</h3>
-          <button id="explore-button" class="btn btn-default" ng-click = "photo.explore();">Explore</button>
-        </div>
-        <div class="col-md-12">
-          <div ng-show="photo.locationsArray.places.place[0]._content">
-            <p>Showing results for <a href="" ng-click="photo.otherResults=!photo.otherResults;">{{photo.locationsArray.places.place[0]._content}}</a></p>
-              <ul ng-show="photo.otherResults">All Results:
-                <li ng-repeat="items in photo.locationsArray.places.place"><a href="" ng-click="photo.where(photo.locationsArray.places.place[$index]._content);photo.otherResults=!photo.otherResults;">{{photo.locationsArray.places.place[$index]._content}}</a></li>
-              </ul>
-          </div>
-            <div ng-repeat="item in photo.list" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{border: hover}" class="pictures col-sm-3">
-              <a ng-click="photo.show($index); photo.whereInArray=$index;">
-                <img class="lower-picture loading" ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
-              </a>
-            </div>
-           <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture" ng-swipe-right="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);" ng-swipe-left="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
-             <div id="focus-container">
-                 <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}" ng-swipe-right="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);" ng-swipe-left="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
-                 <a href=""><span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove"></span></a>
-                 <a href=""><span class="left navigation glyphicon glyphicon-chevron-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span></a>
-                 <a href=""><span class="right navigation glyphicon glyphicon-chevron-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span></a>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="text" placeholder="Location" ng-model="input">
+                    <input type="year" class="form-control" name="date" placeholder="Year" ng-model="date">
+                  </div>
+                  <button id="button" class="btn btn-inverse" type="button" ng-click = "photo.when(date);photo.where(input)">Submit</button>
+                </form>
+                <form class="navbar-form navbar-right">
+                <button id="explore-button" class="pull-right btn btn-inverse" ng-click = "photo.explore();">Explore</button>
+                </form>
               </div>
+            </div>
+          </nav>
+          <div id="landing" ng-hide="photo.locationsArray.places.place[0]._content">
+            <h1 class="landing-text">A Look Back</h1>
+            <h3 class="landing-text">Photography provides insight into the look and feel of a place in history.</h3>
+            <h3 class="landing-text">Search now</h3>
+            <h3 class="landing-text">or</h3>
+            <button id="explore-button" class="btn btn-default" ng-click = "photo.explore();">Explore</button>
+          </div>
+          <div class="col-md-12">
+            <div ng-show="photo.locationsArray.places.place[0]._content">
+              <p>Showing results for <a href="" ng-click="photo.otherResults=!photo.otherResults;">{{photo.locationsArray.places.place[0]._content}}</a></p>
+                <ul ng-show="photo.otherResults">All Results:
+                  <li ng-repeat="items in photo.locationsArray.places.place"><a href="" ng-click="photo.where(photo.locationsArray.places.place[$index]._content);photo.otherResults=!photo.otherResults;">{{photo.locationsArray.places.place[$index]._content}}</a></li>
+                </ul>
+            </div>
+              <div ng-repeat="item in photo.list" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{border: hover}" class="pictures col-sm-3">
+                <a ng-click="photo.show($index); photo.whereInArray=$index;">
+                  <img class="lower-picture loading" ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
+                </a>
+              </div>
+             <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture" ng-swipe-right="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);" ng-swipe-left="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
+               <div id="focus-container">
+                   <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}" ng-swipe-right="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);" ng-swipe-left="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
+                   <a href=""><span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove"></span></a>
+                   <a href=""><span class="left navigation glyphicon glyphicon-chevron-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span></a>
+                   <a href=""><span class="right navigation glyphicon glyphicon-chevron-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span></a>
+                </div>
               </div>
             </div>
           </div>
