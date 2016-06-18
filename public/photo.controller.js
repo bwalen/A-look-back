@@ -35,8 +35,8 @@ function photo($http){
     vm.nextPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray+1)]);
     vm.previousPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray-1)]);
     vm.currentPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray)]);
-    for(var i = 0; i <= 14; i++){
-      prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray - 7 + i)]));
+    for(var i = 0; i <= 20; i++){
+      prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray - 10 + i)]));
     }
   }
 
@@ -70,10 +70,10 @@ function prefetchImage(source){
 
 function adjPos(oldIndex){
   if(oldIndex < 0){
-    oldIndex = vm.list.length-1 + oldIndex;
+    oldIndex = vm.list.length + oldIndex;
   }
   if(oldIndex > vm.list.length-1){
-    oldIndex = oldIndex - vm.list.length-1;
+    oldIndex = oldIndex - vm.list.length;
   }
   return oldIndex;
 }
