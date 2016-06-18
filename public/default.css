@@ -18,8 +18,9 @@ a{
 }
 
 #focus-area{
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.85);
   height:100%;
+  width: 100%;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -27,8 +28,7 @@ a{
 }
 
 #focus-container{
-  max-height: 800px;
-  height: 70%;
+  height: 100%;
 }
 
 #focus-picture{

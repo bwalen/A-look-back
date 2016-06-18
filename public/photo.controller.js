@@ -32,8 +32,6 @@ function photo($http){
     if(vm.whereInArray > vm.list.length-1){
       vm.whereInArray = 0;
     }
-    vm.nextPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray+1)]);
-    vm.previousPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray-1)]);
     vm.currentPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray)]);
     for(var i = 0; i <= 20; i++){
       prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray - 10 + i)]));
