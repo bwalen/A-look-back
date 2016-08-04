@@ -52,6 +52,7 @@
                <div id="focus-container">
                    <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}" ng-swipe-right="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);" ng-swipe-left="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
                    <h4 class="landing-text">{{photo.title}}</h4>
+                   <a ng-href="https://www.flickr.com/photos/{{photo.user}}/{{photo.flickrID}}">View on flickr</a>
                    <a href=""><span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove"></span></a>
                    <a href=""><span class="left navigation glyphicon glyphicon-chevron-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span></a>
                    <a href=""><span class="right navigation glyphicon glyphicon-chevron-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span></a>

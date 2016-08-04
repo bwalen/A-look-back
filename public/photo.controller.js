@@ -34,6 +34,8 @@ function photo($http){
     }
     vm.currentPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray)]);
     vm.title = vm.list[adjPos(vm.whereInArray)].title;
+    vm.user = vm.list[adjPos(vm.whereInArray)].owner;
+    vm.flickrID = vm.list[adjPos(vm.whereInArray)].id;
     for(var i = 0; i <= 20; i++){
       prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray - 10 + i)]));
     }
