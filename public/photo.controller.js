@@ -33,6 +33,7 @@ function photo($http){
       vm.whereInArray = 0;
     }
     vm.currentPicture = getPictureUrl(vm.list[adjPos(vm.whereInArray)]);
+    vm.title = vm.list[adjPos(vm.whereInArray)].title;
     for(var i = 0; i <= 20; i++){
       prefetchImage(getPictureUrl(vm.list[adjPos(vm.whereInArray - 10 + i)]));
     }
