@@ -51,7 +51,7 @@
              <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture" ng-swipe-right="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);" ng-swipe-left="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
                <div id="focus-container">
                    <img id="focus-picture" class="img-responsive" ng-src="{{photo.currentPicture}}" ng-swipe-right="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);" ng-swipe-left="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
-                   <h4 class="landing-text">{{photo.title}} (<a ng-href="https://www.flickr.com/photos/{{photo.user}}/{{photo.flickrID}}">View on flickr</a>)</h4>
+                   <h4 class="landing-text">{{photo.title}} (<a target="_blank" ng-href="https://www.flickr.com/photos/{{photo.user}}/{{photo.flickrID}}">View on flickr</a>)</h4>
                    <a href=""><span id="close" ng-click="photo.currentPicture = false" class="glyphicon glyphicon-remove"></span></a>
                    <a href=""><span class="left navigation glyphicon glyphicon-chevron-left" ng-click="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);"></span></a>
                    <a href=""><span class="right navigation glyphicon glyphicon-chevron-right" ng-click="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);"></span></a>
