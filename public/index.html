@@ -47,6 +47,9 @@
                 <a ng-click="photo.show($index); photo.whereInArray=$index;">
                   <img class="lower-picture loading" ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}_n.jpg">
                 </a>
+                <div ng-class="{title: hover}" class="gallery-titles">
+                  <p>{{item.title}}</p>
+                </div>
               </div>
              <div class="col-md-12 col-sm-12 col-xs-12" id="focus-area" ng-show="photo.currentPicture" ng-swipe-right="photo.whereInArray=photo.whereInArray-1; photo.show(photo.whereInArray);" ng-swipe-left="photo.whereInArray=photo.whereInArray+1; photo.show(photo.whereInArray);">
                <div id="focus-container">
